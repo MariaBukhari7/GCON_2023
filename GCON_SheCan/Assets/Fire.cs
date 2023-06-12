@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    //public ParticleSystem part;
+    public ParticleSystem part;
 
-    
+    void Start()
+    {
+        part = GetComponent<ParticleSystem>();
+    }
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Fire"))
+        if (other.tag == "Fire")
+        {
             Destroy(other);
+        }
     }
 }
