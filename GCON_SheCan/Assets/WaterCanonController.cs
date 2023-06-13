@@ -25,14 +25,15 @@ public class WaterCanonController : MonoBehaviour
 
         void Update()
         {
-        RotateWaterCanon();
-        if (Input.GetMouseButtonDown(0))
+
+        //RotateWaterCanon();
+        if (Input.GetMouseButtonDown(1))
             {
             
             waterCanon.Fire();
         }
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(1))
             {
             waterCanon.StopFire();
             }
