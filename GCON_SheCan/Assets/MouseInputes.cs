@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+ 
 public class MouseInputes : MonoBehaviour
 {
     [SerializeField] GameObject obj;
@@ -17,6 +18,8 @@ public class MouseInputes : MonoBehaviour
     public float sensetivety = 0.001f;
     Ray ray;
     bool canWalk=false;
+
+    [SerializeField]LayerMask layerMask_cantWalk;
     private void Start()
     {
         //waterCanonController = GetComponentInChildren<WaterCanonController>();
@@ -41,15 +44,36 @@ public class MouseInputes : MonoBehaviour
         //}
 
         Ray ray = mainCameera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (CursorControler.cursorControler.SameCrusor(CursorStatus.Water)) 
+        {
+            return;
+        }
+
+        else if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
+        {
+
+            CursorControler.cursorControler.WalkArea();
+            CursorControler.cursorControler.SetCurrentCursorState(CursorStatus.N_Walk);
+
+        }
+        else if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask_cantWalk))
+        {
+            CursorControler.cursorControler.CantWalk();
+            CursorControler.cursorControler.SetCurrentCursorState(CursorStatus.Walk);
 
 
-        if (Input.GetMouseButton(0)&&!canWalk)
+
+        }
+
+        if (Input.GetMouseButton(0))
         {
             //Indecatoer();
       
-                if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask))
+                if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
                 {
-                    Vector3 target = new Vector3(raycastHit.point.x, 0.5f, raycastHit.point.z);
+                    Vector3 target = new Vector3(hit.point.x, 0.5f, hit.point.z);
                     transform.position = Vector3.MoveTowards(transform.position, target, playerSpeed * Time.deltaTime);
                     changeCanonAngle();
 
@@ -59,6 +83,8 @@ public class MouseInputes : MonoBehaviour
 
 
         }
+
+
 
         //if (Input.GetMouseButtonDown(1))
         //{

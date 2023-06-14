@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: def139ab82baac64f91e7c2017e9d525
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cursor_cant_walk: {fileID: 2800000, guid: d40b054edc1bbd940b3a960034440f9e, type: 3}
+  - cursor_walk_area: {fileID: 2800000, guid: ceb6e07db031f9c4091e67b5702bcf04, type: 3}
+  - Turn_on_water: {fileID: 2800000, guid: 9eed6c3c11df76b4bb80ac5d893953d2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

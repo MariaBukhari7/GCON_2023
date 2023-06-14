@@ -29,12 +29,16 @@ public class WaterCanonController : MonoBehaviour
         //RotateWaterCanon();
         if (Input.GetMouseButtonDown(1))
             {
-            
+            CursorControler.cursorControler.SetCurrentCursorState(CursorStatus.Water);
+
+            CursorControler.cursorControler.TurnOnWater();
+
             waterCanon.Fire();
         }
 
             if (Input.GetMouseButtonUp(1))
             {
+            CursorControler.cursorControler.SetCurrentCursorState(CursorStatus.Non);
             waterCanon.StopFire();
             }
 

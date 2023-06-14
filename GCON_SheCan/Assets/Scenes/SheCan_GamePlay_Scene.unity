@@ -6801,6 +6801,9 @@ MonoBehaviour:
   waterCanonController: {fileID: 1562671457}
   turn: {x: 0, y: 0}
   sensetivety: 0.001
+  layerMask_cantWalk:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1001 &1440267509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8695,6 +8698,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1813465953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813465955}
+  - component: {fileID: 1813465954}
+  m_Layer: 0
+  m_Name: Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1813465954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813465953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def139ab82baac64f91e7c2017e9d525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor_cant_walk: {fileID: 2800000, guid: ceb6e07db031f9c4091e67b5702bcf04, type: 3}
+  cursor_walk_area: {fileID: 2800000, guid: d40b054edc1bbd940b3a960034440f9e, type: 3}
+  Turn_on_water: {fileID: 2800000, guid: 9eed6c3c11df76b4bb80ac5d893953d2, type: 3}
+  _hotspot: {x: 0.5, y: 0.5}
+  cursorMode: 0
+--- !u!4 &1813465955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813465953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0783589, y: -1.7363319, z: 9.793985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824067924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7649307984373867853, guid: a13257d89be487e40bc7e05e2456992c, type: 3}
@@ -10272,8 +10324,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112137588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.35, y: 0.23, z: 2.2}
-  m_LocalScale: {x: 1.1960585, y: 2.9534, z: 0.4475473}
+  m_LocalPosition: {x: 1.35, y: 0.23, z: 1.6}
+  m_LocalScale: {x: 1.1960585, y: 2.9534, z: 0.5743822}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
