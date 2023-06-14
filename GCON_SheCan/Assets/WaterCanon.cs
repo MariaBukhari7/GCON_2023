@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterCanon : MonoBehaviour
 {
-    [SerializeField]
+    
     private new ParticleSystem particleSystem;
 
     [SerializeField]
@@ -19,8 +19,9 @@ public class WaterCanon : MonoBehaviour
 
     private bool fireCooldown;
 
-    void Start()
+    void Awake()
     {
+        particleSystem = GetComponent<ParticleSystem>();
         particleSystem.Stop();
         collisionEvents = new List<ParticleCollisionEvent>();
     }

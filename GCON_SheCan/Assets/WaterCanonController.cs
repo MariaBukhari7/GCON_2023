@@ -17,7 +17,7 @@ public class WaterCanonController : MonoBehaviour
     private float cannonAngle;
     private Transform m_transform;
 
-    void Start()
+    void Awake()
         {
             waterCanon.SetEnemyTag(fireTag);
         

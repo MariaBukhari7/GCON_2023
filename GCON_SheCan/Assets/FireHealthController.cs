@@ -12,15 +12,15 @@ public class FireHealthController : MonoBehaviour
     [SerializeField]
     private new ParticleSystem fireParticleSystem;
     private float intinsity = 30;
+    [SerializeField] FireSystem fireSystem;
 
 
-    private MeshRenderer meshRenderer;
 
     private bool isDead;
 
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+       
         currentHealth = maxHealth;
         canChangeFireIntinsity = true;
         
@@ -32,29 +32,13 @@ public class FireHealthController : MonoBehaviour
 
         currentHealth -= damage;
 
-        if (currentHealth == 1500f)
-        {
-            canChangeFireIntinsity = false;
-            ChangeIntinsity(10f);
-
-        }else if (currentHealth == 1000f)
-        {
-            canChangeFireIntinsity = false;
-            ChangeIntinsity(10f);
-        }else if (currentHealth == 500f)
-        {
-            canChangeFireIntinsity = false;
-            ChangeIntinsity(5f);
-        }else if (currentHealth == 0f)
-        {
-            canChangeFireIntinsity = false;
-            ChangeIntinsity(5f);
-        }
+        
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             isDead = true;
+            fireSystem.AddToList();
             gameObject.SetActive(false);
 
           
