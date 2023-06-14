@@ -7,10 +7,12 @@ public class FireHealthController : MonoBehaviour
 {
     [SerializeField]
     private float maxHealth;
-
+    private bool canChangeFireIntinsity;
     private float currentHealth;
+    [SerializeField]
+    private new ParticleSystem fireParticleSystem;
+    private float intinsity = 30;
 
- 
 
     private MeshRenderer meshRenderer;
 
@@ -20,7 +22,7 @@ public class FireHealthController : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         currentHealth = maxHealth;
-       
+        canChangeFireIntinsity = true;
         
     }
 
@@ -30,6 +32,25 @@ public class FireHealthController : MonoBehaviour
 
         currentHealth -= damage;
 
+        if (currentHealth == 1500f)
+        {
+            canChangeFireIntinsity = false;
+            ChangeIntinsity(10f);
+
+        }else if (currentHealth == 1000f)
+        {
+            canChangeFireIntinsity = false;
+            ChangeIntinsity(10f);
+        }else if (currentHealth == 500f)
+        {
+            canChangeFireIntinsity = false;
+            ChangeIntinsity(5f);
+        }else if (currentHealth == 0f)
+        {
+            canChangeFireIntinsity = false;
+            ChangeIntinsity(5f);
+        }
+
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -38,11 +59,17 @@ public class FireHealthController : MonoBehaviour
 
           
         }
-
+         
        
     }
 
-    
+    private void ChangeIntinsity( float rate)
+    {
+        var emisson = fireParticleSystem.emission;
+        emisson.rateOverTime = intinsity - rate;
+    }
 
-   
+
+
+
 }

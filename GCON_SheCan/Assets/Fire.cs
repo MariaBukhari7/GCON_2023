@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public ParticleSystem part;
+    [SerializeField]
+    private new ParticleSystem fireParticleSystem;
+    private float intinsity = 30;
 
-    void Start()
-    {
-        part = GetComponent<ParticleSystem>();
-    }
 
-    void OnParticleCollision(GameObject other)
+   private void ChangeIntinsity()
     {
-        if (other.tag == "Fire")
-        {
-            Destroy(other);
-        }
+        var emisson = fireParticleSystem.emission;
+        emisson.rateOverTime = intinsity - 10;
     }
 }

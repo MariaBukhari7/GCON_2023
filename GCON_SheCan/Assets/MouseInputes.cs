@@ -8,6 +8,7 @@ public class MouseInputes : MonoBehaviour
     [SerializeField] Camera mainCameera;
     [SerializeField] LayerMask layerMask;
     [SerializeField] float playerSpeed;
+    [SerializeField] WaterCanonController waterCanonController;
     // Start is called before the first frame update
     //input system = mouse buttons
     //actions = 
@@ -18,6 +19,7 @@ public class MouseInputes : MonoBehaviour
     bool canWalk=false;
     private void Start()
     {
+        //waterCanonController = GetComponentInChildren<WaterCanonController>();
     }
     // Update is called once per frame
     void Update()
@@ -49,6 +51,7 @@ public class MouseInputes : MonoBehaviour
                 {
                     Vector3 target = new Vector3(raycastHit.point.x, 0.5f, raycastHit.point.z);
                     transform.position = Vector3.MoveTowards(transform.position, target, playerSpeed * Time.deltaTime);
+                    changeCanonAngle();
 
                 }
             
@@ -68,6 +71,24 @@ public class MouseInputes : MonoBehaviour
         //    print("hihi");
 
         //}
+    }
+
+    private void changeCanonAngle()
+    {
+        if (transform.position.z > 3.6)
+        {
+            waterCanonController.RotateWaterCanon(-2.66f);
+        }else if (transform.position.z < 1)
+        {
+            waterCanonController.RotateWaterCanon(-44f);
+        }
+        else
+        {
+            waterCanonController.RotateWaterCanon(-32f);
+        }
+
+
+
     }
 
     public void Indecatoer() 
