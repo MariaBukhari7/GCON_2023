@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SheCan_MainMenu_Scene.unity
+    guid: 9a03b11a1ef02ff41a73f16b55ca4cc6
+  - enabled: 1
+    path: Assets/Scenes/SheCan_GamePlay_Scene.unity
+    guid: cde36fe9da70da942b4e88b96b03f7ef
+  - enabled: 1
+    path: Assets/Scenes/SheCan_Won_Scene.unity
+    guid: 58494b2de4d8b6541b6393b4db12ba85
+  - enabled: 1
+    path: Assets/Scenes/SheCan_Loss_Scene.unity
+    guid: 3590eea4b8e7c114b93e03931802b267
   m_configObjects: {}
