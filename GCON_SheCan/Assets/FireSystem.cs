@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+
 public class FireSystem : MonoBehaviour
 {
     private int numOfFire;
     private int maxNumberOfFire;
     private int numOfFireTuredOff;
-    private float timer = 5;
+    private float timer = 30;
     public List<GameObject> fireList;
     private bool canAddFire;
+    [SerializeField] private TMP_Text timerText;
    
     void Start()
     {
@@ -36,6 +40,7 @@ public class FireSystem : MonoBehaviour
     {
         if (timer > 0)
         {
+            timerText.text = Mathf.RoundToInt(timer).ToString();
             timer -= Time.deltaTime;
         }
         if (maxNumberOfFire != numOfFire && timer <=0)
